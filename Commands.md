@@ -79,7 +79,7 @@ sudo apt-get install jenkins -y
 sudo systemctl start jenkins
 sudo systemctl status jenkins
 
-# Install Docker and Run SonarQube as Container
+##Install Docker and Run SonarQube as Container
 sudo apt-get update
 sudo apt-get install docker.io -y
 sudo usermod -aG docker ubuntu
@@ -165,7 +165,7 @@ provider "aws" {
 #!/bin/bash
 sudo apt update -y
 
-# Install Prometheus and Create Service for Prometheus
+##Install Prometheus and Create Service for Prometheus
 sudo useradd --system --no-create-home --shell /bin/false prometheus
 wget https://github.com/prometheus/prometheus/releases/download/v2.47.1/prometheus-2.47.1.linux-amd64.tar.gz
 tar -xvf prometheus-2.47.1.linux-amd64.tar.gz
@@ -204,7 +204,7 @@ EOF
 sudo systemctl enable prometheus
 sudo systemctl start prometheus
 
-# Install Node Exporter and Create Service for Node Exporter
+##Install Node Exporter and Create Service for Node Exporter
 sudo useradd --system --no-create-home --shell /bin/false node_exporter
 wget https://github.com/prometheus/node_exporter/releases/download/v1.6.1/node_exporter-1.6.1.linux-amd64.tar.gz
 tar -xvf node_exporter-1.6.1.linux-amd64.tar.gz
@@ -233,7 +233,7 @@ EOF
 sudo systemctl enable node_exporter
 sudo systemctl start node_exporter
 
-# Install Grafana
+##Install Grafana
 $ sudo apt-get update
 $ sudo apt-get install -y apt-transport-https software-properties-common
 $ wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
@@ -267,7 +267,7 @@ $ curl -X POST http://localhost:9090/-/reload
     static_configs:
       - targets: ['IP-Address:8080']
 =============================================================================================================================================================================================
-# Create AWS EKS Cluster
+[C] Create AWS EKS Cluster
 1--Install kubectl on Jenkins Server
  $ sudo apt update
  $ sudo apt install curl
@@ -297,7 +297,7 @@ eksctl create cluster --name virtualtechbox-cluster \
 5--Verify Cluster with below command
 $ kubectl get nodes
 =============================================================================================================================================================================================
-# Integrate Prometheus with EKS and Import Grafana Monitoring Dashboard for Kubernetes
+[D] Integrate Prometheus with EKS and Import Grafana Monitoring Dashboard for Kubernetes
 1--Install Helm
 $ sudo snap install helm --classic,    $ helm version
                     OR
@@ -425,7 +425,7 @@ pipeline {
 }
 
 =============================================================================================================================================================================================
-# Cleanup
+[G] Cleanup
 $ kubectl delete --all pods -n prometheus                   //This command will delete all the pods in prometheus namespace
 $ kubectl delete namespace prometheus
 $ kubectl get all                                           //This command will show the all the deployments, pods & services in default namespace
